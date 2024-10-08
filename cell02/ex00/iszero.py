@@ -1,4 +1,4 @@
-number = (input())
+number = int(input())
 x = 0
 if x != number :
     print ("This number is different from zero")
