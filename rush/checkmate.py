@@ -10,10 +10,10 @@ def print_chess_board(king_position, white_pieces):
         row, col = piece['position']
         board[row][col] = piece['type'][0].upper()  # First letter as representation
 
-    # Print the chessboard
-    print("  a b c d e f g h")
+    # Print the chessboard with swapped letters and numbers
+    print("  h g f e d c b a")
     for i in range(8):
-        print(8 - i, " ".join(board[i]))
+        print(8 - i, " ".join(board[i]))  # Rows numbered from 8 to 1
     print()
 
 def is_in_check(position, white_pieces):
