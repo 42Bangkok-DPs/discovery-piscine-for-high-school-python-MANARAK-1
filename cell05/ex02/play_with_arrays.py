@@ -9,4 +9,5 @@ for num in original_array:
 
 greater_than_five = [num for num in new_array if num > 5]
 
+print(original_array)
 print(greater_than_five)
