@@ -11,7 +11,7 @@ def main():
     print("Use (Q) for White Queen")
     print("Use dots (.) for empty spaces.")
     print("Each row should be on a new line.")
-    print("Enter first then type (done) when you are finished entering the board.")
+    print("Press enter first then type (done) when you are finished entering the board.")
 
     # Capture the chessboard input from the user
     board = []
