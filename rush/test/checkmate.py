@@ -62,6 +62,11 @@ class Queen(ChessPiece):
         col_diff = abs(queen_col - target_col)
         return queen_row == target_row or queen_col == target_col or row_diff == col_diff
 
+def is_king_in_check(king, white_pieces):
+    """Check if the black king is currently in check."""
+    king_position = king.position
+    return any(piece.is_valid_move(king_position) for piece in white_pieces)
+
 def is_checkmate(king, white_pieces, board_height):
     king_row, king_col = king.position_to_coordinates()
 
@@ -71,6 +76,10 @@ def is_checkmate(king, white_pieces, board_height):
         for i in range(-1, 2) for j in range(-1, 2)
         if (i, j) != (0, 0) and 0 <= king_row + i < board_height and 0 <= king_col + j < board_height
     ]
+
+    # If the king is not in check, it's not checkmate
+    if not is_king_in_check(king, white_pieces):
+        return False
 
     # Check if each move is safe (not under attack by any white piece)
     for move in possible_moves:
@@ -121,7 +130,7 @@ def checkmate(board_string):
                 white_pieces.append(Bishop(position))
             elif piece == 'Q':
                 white_pieces.append(Queen(position))
-
+                
     # Check if the black king is in checkmate
     if black_king:
         if is_checkmate(black_king, white_pieces, board_height):
