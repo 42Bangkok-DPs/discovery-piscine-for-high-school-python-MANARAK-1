@@ -123,4 +123,3 @@ def checkmate(board_string):
 #2.King is the only one who is on black team
 #3.white team has pawn, rook, bishop, and queen
 #4.this code only need to check if the king from black team got checkmate by any pieces from white teams
-#5.make a chess board into table
